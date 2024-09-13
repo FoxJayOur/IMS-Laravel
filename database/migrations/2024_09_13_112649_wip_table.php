@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('qty');
             $table->timestamp('stored_date')->nullable();
             $table->text('description');
+            $table->date('wip_eta');
             $table->timestamps();
         });
     }

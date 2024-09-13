@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('qty');
             $table->timestamp('stored_date')->nullable();
             $table->text('description');
+            $table->date('finished_date');
             $table->timestamps();
         });
     }
