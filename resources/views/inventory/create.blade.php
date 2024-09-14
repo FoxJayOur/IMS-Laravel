@@ -4,25 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}">
 </head>
 <body>
-    <h1>Store item</h1>
-    <form method="post" action="">
+    <x-app-layout>
+        <x-slot name="header">
+            <a class="header-group" href="{{ route('visualization/inventory/create') }}">
+                {{ __('Raw Materials') }}
+            </a>
+            <a class="header-group" href="{{ route('visualization/inventory/create') }}">
+                {{ __('WIPs') }}
+            </a>
+            <a class="header-group" href="{{ route('visualization/inventory/create') }}">
+                {{ __('Supplies') }}
+            </a>
+            <a class="header-group" href="{{ route('visualization/inventory/create') }}">
+                {{ __('Finished Goods') }}
+            </a>
+        </x-slot>
         <div>
-            <label>Name</label>
-            <input type="text" name="name" placeholder="Name" />
+            @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ul>
+            @endif
         </div>
-        <div>
-            <label>Qty</label>
-            <input type="text" name="qty" placeholder="Quantity" />
-        </div>
-        <div>
-            <label>Description</label>
-            <input type="text" name="description" placeholder="Description" />
-        </div>
-        <div>
-            <input type="submit" value="Save a new item">
-        </div>
-    </form>
+        <form method="post" action="{{route('visualization/inventory/store')}}">
+            @csrf
+            @method('post')
+            <div class="form-group">
+                <label>Name</label>
+                <x-input type="text" name="item_name" placeholder="Item Name" />
+            </div>
+            <div class="form-group">
+                <label>Qty</label>
+                <x-input type="number" name="qty" placeholder="Quantity" />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <x-input type="text" name="description" placeholder="Description" />
+            </div>
+            <div class="form-group">
+                <label>Supplier</label>
+                <x-input type="text" name="supplier" placeholder="Supplier" />
+            </div>
+            <div class="form-group">
+                <label>Expiry Date</label>
+                <x-input type="date" name="expiry_date" placeholder="Expiry Date" />
+            </div>
+            <div class="form-group">
+                <label>Storage Condition</label>
+                <x-input type="text" name="storage_condition" placeholder="Storage Condition" />
+            </div>
+            <div class="form-group">
+                <label>Measurement</label>
+                <x-input type="number" name="measurement" placeholder="Measurement" />
+            </div>
+            <div class="form-group">
+                <label>Cost</label>
+                <x-input type="number" name="cost" placeholder="Cost" step="any" />
+            </div>
+            <div class="form-group">
+                <x-button>
+                    <input type="submit" value="Store Item">
+                </x-button>
+            </div>
+        </form>
+    </x-app-layout>
 </body>
 </html>

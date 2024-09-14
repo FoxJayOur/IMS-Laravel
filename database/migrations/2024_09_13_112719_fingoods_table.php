@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fingoods_table', function (Blueprint $table) {
+        Schema::create('finished_goods', function (Blueprint $table) {
             $table->id();
             $table->string('item_name');
             $table->integer('qty');
             $table->timestamp('stored_date')->nullable();
-            $table->text('description');
-            $table->date('finished_date');
+            $table->string('description');
+            $table->string('sku');
+            $table->string('total_sold');
+            $table->decimal('cost');
             $table->timestamps();
         });
     }

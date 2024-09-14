@@ -51,7 +51,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ms-4">
+                <x-button :href="route('visualization')" class="ms-4">
                     {{ __('Register') }}
                 </x-button>
             </div>

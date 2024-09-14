@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 <body>
-    <h1>Inventory</h1>
-    <div>
-        index
-    </div>
-    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-        <x-nav-link href="{{ route('visualization/inventory/create') }}" :active="request()->routeIs('visualization/inventory/create')">
-            {{ __('Create') }}
-        </x-nav-link>
-    </div>
+    <x-app-layout>
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                <a href="{{ route('visualization/inventory/create') }}" :active="request()->routeIs('visualization/inventory/create')">
+                    {{ __('Inventory') }}
+                </a>
+            </h2>
+        </x-slot>
+        <div class="card">
+            <a class="card-group" href="{{route('visualization/inventory/create')}}">
+                {{ __('Create') }}
+            </a>
+        </div>
+        <div class="card">
+            <a class="card-group" href="{{route('visualization/inventory/view')}}">
+                {{ __('View') }}
+            </a>
+        </div>
+        <div class="card">
+            <a class="card-group" href="{{route('visualization/inventory/update')}}">
+                {{ __('Update') }}
+            </a>
+        </div>
+        <div class="card">
+            <a class="card-group" href="{{route('visualization/inventory/delete')}}">
+                {{ __('Delete') }}   
+            </a>
+        </div>
+    </x-app-layout>
 </body>
 </html>
