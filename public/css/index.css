@@ -5,22 +5,29 @@
 }
 
 .card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; 
+    padding: 60px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+    padding-top: 8px;
+    padding-bottom: 13px;
+}
+
+i {
+    border-radius: 5px 5px 0 0;
     display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
+    align-items: center;
+    margin: 5px;
+    float: left;
 }
-
-.card-group {
-    flex: 1;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: rgb(173, 27, 27);
-    border-radius: 10px;
-    text-align: center;
-}
-

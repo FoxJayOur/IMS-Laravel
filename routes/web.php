@@ -20,7 +20,8 @@ Route::middleware([
     Route::get('/visualization/inventory/create', [RawMaterialsController::class, 'create'])->name('visualization/inventory/create');
     Route::post('/visualization/inventory', [RawMaterialsController::class, 'store'])->name('visualization/inventory/store');
     Route::get('/visualization/inventory/view', [RawMaterialsController::class, 'view'])->name('visualization/inventory/view');
-    Route::post('/visualization/inventory/update', [RawMaterialsController::class, 'update'])->name('visualization/inventory/update');
-    Route::delete('/visualization/inventory/delete', [RawMaterialsController::class, 'delete'])->name('visualization/inventory/delete');
+    Route::get('/visualization/inventory/{rawmaterial}/update', [RawMaterialsController::class, 'update'])->name('visualization/inventory/update');
+    Route::put('/visualization/inventory/{rawmaterial}/save', [RawMaterialsController::class, 'save'])->name('visualization/inventory/save');
+    Route::delete('/visualization/inventory/{rawmaterial}/delete', [RawMaterialsController::class, 'delete'])->name('visualization/inventory/delete');
 });
 
