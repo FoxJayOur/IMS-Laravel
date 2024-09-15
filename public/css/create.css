@@ -6,7 +6,7 @@
 
 .form-group {
   margin-bottom: 20px;
-    margin-left: 10%;
+  margin-left: 10%;
 }
 
 .header-group {
@@ -19,4 +19,6 @@
 
 .forms {
   margin-top: 2.5%;
+  height: 100%;
+  padding-bottom: 10px;
 }

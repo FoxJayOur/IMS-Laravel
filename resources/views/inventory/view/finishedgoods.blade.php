@@ -44,7 +44,7 @@
             @endif
         </div>
         <div class="inventory-area">
-            Raw Materials
+            Finished Goods
         </div>
         <div class="table-group">
             <table border="1">
@@ -53,31 +53,27 @@
                     <th>Item Name</th>
                     <th>Quantity</th>
                     <th>Description</th>
-                    <th>Supplier</th>
-                    <th>Expiry Date</th>
-                    <th>Storage Condition</th>
-                    <th>Measurement</th>
+                    <th>SKU</th>
+                    <th>Total Sold</th>
                     <th>Cost</th>
                 </tr>
-                @foreach($rawmaterials as $rawmaterial)
+                @foreach($finishedgoods as $finishedgood)
                     <tr class="data-group">
-                        <td>{{$rawmaterial->id}}</td>
-                        <td>{{$rawmaterial->item_name}}</td>
-                        <td>{{$rawmaterial->qty}}</td>
-                        <td>{{$rawmaterial->description}}</td>
-                        <td>{{$rawmaterial->supplier}}</td>
-                        <td>{{$rawmaterial->expiry_date}}</td>
-                        <td>{{$rawmaterial->storage_condition}}</td>
-                        <td>{{$rawmaterial->measurement}}</td>
-                        <td>{{$rawmaterial->cost}}</td>
+                        <td>{{$finishedgood->id}}</td>
+                        <td>{{$finishedgood->item_name}}</td>
+                        <td>{{$finishedgood->qty}}</td>
+                        <td>{{$finishedgood->description}}</td>
+                        <td>{{$finishedgood->sku}}</td>
+                        <td>{{$finishedgood->total_sold}}</td>
+                        <td>{{$finishedgood->cost}}</td>
                         <td>
                             <x-button class="butn">
-                                <a href="{{route('rawMaterialsUpdate', ['rawmaterial'=>$rawmaterial])}}">
+                                <a href="{{route('finishedGoodsUpdate', ['finishedgood'=>$finishedgood])}}">
                                     Update
                                 </a>
                             </x-button>
                             <x-button class="butn">
-                                <form method="post" action="{{route('rawMaterialsDelete', ['rawmaterial'=>$rawmaterial])}}">
+                                <form method="post" action="{{route('finishedGoodsDelete', ['finishedgood'=>$finishedgood])}}">
                                     @csrf
                                     @method('delete')
                                     <input type="submit" value="DELETE">
@@ -90,7 +86,7 @@
         </div>
         <div class="create">
             <x-button>
-                <a href="{{route('rawMaterialsCreate')}}">
+                <a href="{{route('finishedGoodsCreate')}}">
                     Create
                 </a>
             </x-button>

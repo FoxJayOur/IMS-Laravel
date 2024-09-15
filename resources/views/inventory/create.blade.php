@@ -9,16 +9,16 @@
 <body>
     <x-app-layout>
         <x-slot name="header">
-            <a class="header-group" href="{{ route('visualization/inventory/view') }}">
+            <a class="header-group" href="{{ route('rawMaterialsView') }}">
                 {{ __('Raw Materials') }}
             </a>
-            <a class="header-group" href="{{ route('visualization/inventory/view') }}">
+            <a class="header-group" href="{{ route('wipsView') }}">
                 {{ __('WIPs') }}
             </a>
-            <a class="header-group" href="{{ route('visualization/inventory/view') }}">
+            <a class="header-group" href="{{ route('suppliesView') }}">
                 {{ __('Supplies') }}
             </a>
-            <a class="header-group" href="{{ route('visualization/inventory/view') }}">
+            <a class="header-group" href="{{ route('finishedGoodsView') }}">
                 {{ __('Finished Goods') }}
             </a>
         </x-slot>
@@ -38,7 +38,7 @@
                 </div>
             @endif
         </div>
-        <form class="forms" method="post" action="{{route('visualization/inventory/store')}}">
+        <form class="forms" method="post" action="{{route('rawMaterialsStore')}}">
             @csrf
             @method('post')
             <div class="form-group">
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
                 <label>Measurement</label>
-                <x-input type="number" name="measurement" placeholder="Measurement" />
+                <x-input type="text" name="measurement" placeholder="Measurement" />
             </div>
             <div class="form-group">
                 <label>Cost</label>

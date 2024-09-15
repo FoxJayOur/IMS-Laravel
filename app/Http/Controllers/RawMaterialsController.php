@@ -29,13 +29,13 @@ class RawMaterialsController extends Controller
             'supplier'=> 'required',
             'expiry_date'=> 'required|date',
             'storage_condition'=> 'required',
-            'measurement'=> 'required|numeric',
+            'measurement'=> 'required',
             'cost'=> 'required|decimal:0,4',
         ]);
 
         $newInventory = RawMaterials::create($data);
 
-        return redirect()->route('visualization/inventory')->with('success','Item was stored in inventory');
+        return redirect()->route('inventory')->with('success','Item was stored in inventory');
     }
 
     public function update(RawMaterials $rawmaterial) {
@@ -52,18 +52,18 @@ class RawMaterialsController extends Controller
             'supplier'=> 'required',
             'expiry_date'=> 'required|date',
             'storage_condition'=> 'required',
-            'measurement'=> 'required|numeric',
+            'measurement'=> 'required',
             'cost'=> 'required|decimal:0,4',
         ]);
 
         $rawmaterial->update($data);
 
-        return redirect()->route('visualization/inventory/view')->with('success','Updated Successfully');
+        return redirect()->route('rawMaterialsView')->with('success','Updated Successfully');
     }
     
     public function delete(RawMaterials $rawmaterial) {
         $rawmaterial->delete();
 
-        return redirect()->route('visualization/inventory/view')->with('delete','Successfully Deleted');
+        return redirect()->route('rawMaterialsView')->with('delete','Successfully Deleted');
     }
 }

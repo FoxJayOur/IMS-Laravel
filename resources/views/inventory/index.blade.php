@@ -11,7 +11,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                <a href="{{ route('visualization/inventory/create') }}" :active="request()->routeIs('visualization/inventory/create')">
+                <a href="{{ route('inventory') }}" :active="request()->routeIs('inventory')">
                     {{ __('Inventory') }}
                 </a>
             </h2>
@@ -20,7 +20,7 @@
             <div class="card">
                 <i class="fa-solid fa-truck-ramp-box"></i>
                 <div class="container">
-                    <a href="{{route('visualization/inventory/view')}}">
+                    <a href="{{route('rawMaterialsView')}}">
                         <h4><b>Allinal Productions Company</b></h4>
                         <p>Import and exportation of various materials and goods</p>
                     </a>

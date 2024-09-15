@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wips', function (Blueprint $table) {
+        Schema::create('work_in_progress', function (Blueprint $table) {
             $table->id();
             $table->string('item_name');
             $table->integer('qty');
             $table->timestamp('stored_date')->nullable();
             $table->string('description');
-            $table->integer('stage_of_production');
+            $table->string('stage_of_production');
             $table->date('eta');
             $table->decimal('total_cost');
             $table->string('raw_materials');

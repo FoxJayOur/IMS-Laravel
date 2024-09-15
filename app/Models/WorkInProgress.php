@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Supplies extends Model
+class WorkInProgress extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,9 @@ class Supplies extends Model
         'item_name',
         'qty',
         'description',
-        'usage_rates',
-        'cost',
-        'storage_requirements',
+        'stage_of_production',
+        'eta',
+        'total_cost',
+        'raw_materials',
     ];
 }

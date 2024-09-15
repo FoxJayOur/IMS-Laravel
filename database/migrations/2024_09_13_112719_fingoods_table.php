@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('stored_date')->nullable();
             $table->string('description');
             $table->string('sku');
-            $table->string('total_sold');
+            $table->integer('total_sold');
             $table->decimal('cost');
             $table->timestamps();
         });

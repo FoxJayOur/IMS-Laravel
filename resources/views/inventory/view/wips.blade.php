@@ -44,7 +44,7 @@
             @endif
         </div>
         <div class="inventory-area">
-            Raw Materials
+            Work in Progress
         </div>
         <div class="table-group">
             <table border="1">
@@ -53,31 +53,29 @@
                     <th>Item Name</th>
                     <th>Quantity</th>
                     <th>Description</th>
-                    <th>Supplier</th>
-                    <th>Expiry Date</th>
-                    <th>Storage Condition</th>
-                    <th>Measurement</th>
-                    <th>Cost</th>
+                    <th>Stage of Production</th>
+                    <th>ETA</th>
+                    <th>Total Cost</th>
+                    <th>Raw Materials</th>
                 </tr>
-                @foreach($rawmaterials as $rawmaterial)
+                @foreach($wips as $wip)
                     <tr class="data-group">
-                        <td>{{$rawmaterial->id}}</td>
-                        <td>{{$rawmaterial->item_name}}</td>
-                        <td>{{$rawmaterial->qty}}</td>
-                        <td>{{$rawmaterial->description}}</td>
-                        <td>{{$rawmaterial->supplier}}</td>
-                        <td>{{$rawmaterial->expiry_date}}</td>
-                        <td>{{$rawmaterial->storage_condition}}</td>
-                        <td>{{$rawmaterial->measurement}}</td>
-                        <td>{{$rawmaterial->cost}}</td>
+                        <td>{{$wip->id}}</td>
+                        <td>{{$wip->item_name}}</td>
+                        <td>{{$wip->qty}}</td>
+                        <td>{{$wip->description}}</td>
+                        <td>{{$wip->stage_of_production}}</td>
+                        <td>{{$wip->eta}}</td>
+                        <td>{{$wip->total_cost}}</td>
+                        <td>{{$wip->raw_materials}}</td>
                         <td>
                             <x-button class="butn">
-                                <a href="{{route('rawMaterialsUpdate', ['rawmaterial'=>$rawmaterial])}}">
+                                <a href="{{route('wipsUpdate', ['wip'=>$wip])}}">
                                     Update
                                 </a>
                             </x-button>
                             <x-button class="butn">
-                                <form method="post" action="{{route('rawMaterialsDelete', ['rawmaterial'=>$rawmaterial])}}">
+                                <form method="post" action="{{route('wipsDelete', ['wip'=>$wip])}}">
                                     @csrf
                                     @method('delete')
                                     <input type="submit" value="DELETE">
@@ -90,7 +88,7 @@
         </div>
         <div class="create">
             <x-button>
-                <a href="{{route('rawMaterialsCreate')}}">
+                <a href="{{route('wipsCreate')}}">
                     Create
                 </a>
             </x-button>

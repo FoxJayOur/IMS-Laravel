@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('supplier');
             $table->date('expiry_date');
             $table->string('storage_condition');
-            $table->decimal('measurement');
+            $table->string('measurement');
             $table->decimal('cost');
             $table->timestamps();
         });

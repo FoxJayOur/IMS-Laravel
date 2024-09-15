@@ -33,40 +33,48 @@
             </ul>
             @endif
         </div>
-        <form class="forms" method="post" action="{{route('rawMaterialsSave', ['rawmaterial' => $rawmaterial])}}">
+        <form class="forms" method="post" action="{{route('wipsSave', ['wip' => $wip])}}">
             @csrf
             @method('put')
             <div class="form-group">
                 <label>Name</label>
-                <x-input type="text" name="item_name" placeholder="Item Name" value="{{$rawmaterial->item_name}}"/>
+                <x-input type="text" name="item_name" placeholder="Item Name" value="{{$wip->item_name}}"/>
             </div>
             <div class="form-group">
                 <label>Qty</label>
-                <x-input type="number" name="qty" placeholder="Quantity" value="{{$rawmaterial->qty}}"/>
+                <x-input type="number" name="qty" placeholder="Quantity" value="{{$wip->qty}}"/>
             </div>
             <div class="form-group">
                 <label>Description</label>
-                <x-input type="text" name="description" placeholder="Description" value="{{$rawmaterial->description}}"/>
+                <x-input type="text" name="description" placeholder="Description" value="{{$wip->description}}"/>
             </div>
             <div class="form-group">
-                <label>Supplier</label>
-                <x-input type="text" name="supplier" placeholder="Supplier" value="{{$rawmaterial->supplier}}"/>
+                <div>
+                    <label>Stage of Production</label>
+                </div>
+                <div>
+                    Current stage of production: {{$wip->stage_of_production}}
+                </div>
+                <x-label>Preparation</x-label>
+                <x-input type="radio" name="stage_of_production" value="Preparation"/>
+                <x-label>Production</x-label>
+                <x-input type="radio" name="stage_of_production" value="Production"/>
+                <x-label>Quality Control</x-label>
+                <x-input type="radio" name="stage_of_production" value="Quality Control"/>
+                <x-label>Finishing and Distribution</x-label>
+                <x-input type="radio" name="stage_of_production" value="Finishing and Distribution"/>
             </div>
             <div class="form-group">
-                <label>Expiry Date</label>
-                <x-input type="date" name="expiry_date" placeholder="Expiry Date" value="{{$rawmaterial->expiry_date}}"/>
+                <label>ETA</label>
+                <x-input type="date" name="eta" placeholder="ETA" value="{{$wip->eta}}"/>
             </div>
             <div class="form-group">
-                <label>Storage Condition</label>
-                <x-input type="text" name="storage_condition" placeholder="Storage Condition" value="{{$rawmaterial->storage_condition}}"/>
+                <label>Total Cost</label>
+                <x-input type="text" name="total_cost" placeholder="Total Cost" value="{{$wip->total_cost}}"/>
             </div>
             <div class="form-group">
-                <label>Measurement</label>
-                <x-input type="text" name="measurement" placeholder="Measurement" value="{{$rawmaterial->measurement}}"/>
-            </div>
-            <div class="form-group">
-                <label>Cost</label>
-                <x-input type="number" name="cost" placeholder="Cost" step="any" value="{{$rawmaterial->cost}}"/>
+                <label>Raw Materials</label>
+                <x-input type="text" name="raw_materials" placeholder="Raw Materials" value="{{$wip->raw_materials}}"/>
             </div>
             <div class="form-group">
                 <x-button>

@@ -32,45 +32,42 @@
                 @endforeach
             </ul>
             @endif
+            @if(session()->has('success'))
+                <div>
+                    {{session('success')}}
+                </div>
+            @endif
         </div>
-        <form class="forms" method="post" action="{{route('rawMaterialsSave', ['rawmaterial' => $rawmaterial])}}">
+        <form class="forms" method="post" action="{{route('suppliesStore')}}">
             @csrf
-            @method('put')
+            @method('post')
             <div class="form-group">
                 <label>Name</label>
-                <x-input type="text" name="item_name" placeholder="Item Name" value="{{$rawmaterial->item_name}}"/>
+                <x-input type="text" name="item_name" placeholder="Item Name" />
             </div>
             <div class="form-group">
                 <label>Qty</label>
-                <x-input type="number" name="qty" placeholder="Quantity" value="{{$rawmaterial->qty}}"/>
+                <x-input type="number" name="qty" placeholder="Quantity" />
             </div>
             <div class="form-group">
                 <label>Description</label>
-                <x-input type="text" name="description" placeholder="Description" value="{{$rawmaterial->description}}"/>
+                <x-input type="text" name="description" placeholder="Description" />
             </div>
             <div class="form-group">
-                <label>Supplier</label>
-                <x-input type="text" name="supplier" placeholder="Supplier" value="{{$rawmaterial->supplier}}"/>
-            </div>
-            <div class="form-group">
-                <label>Expiry Date</label>
-                <x-input type="date" name="expiry_date" placeholder="Expiry Date" value="{{$rawmaterial->expiry_date}}"/>
-            </div>
-            <div class="form-group">
-                <label>Storage Condition</label>
-                <x-input type="text" name="storage_condition" placeholder="Storage Condition" value="{{$rawmaterial->storage_condition}}"/>
-            </div>
-            <div class="form-group">
-                <label>Measurement</label>
-                <x-input type="text" name="measurement" placeholder="Measurement" value="{{$rawmaterial->measurement}}"/>
+                <label>Usage Rates</label>
+                <x-input type="text" name="usage_rates" placeholder="Usage Rates" />
             </div>
             <div class="form-group">
                 <label>Cost</label>
-                <x-input type="number" name="cost" placeholder="Cost" step="any" value="{{$rawmaterial->cost}}"/>
+                <x-input type="number" name="cost" placeholder="Cost" />
+            </div>
+            <div class="form-group">
+                <label>Storage Requirements</label>
+                <x-input type="text" name="storage_requirements" placeholder="Storage Requirements" />
             </div>
             <div class="form-group">
                 <x-button>
-                    <input type="submit" value="Save Item">
+                    <input type="submit" value="Store Item">
                 </x-button>
             </div>
         </form>

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mas', function (Blueprint $table) {
+        Schema::create('supplies', function (Blueprint $table) {
             $table->id();
             $table->string('item_name');
             $table->integer('qty');
             $table->timestamp('stored_date')->nullable();
             $table->string('description');
-            $table->integer('usage_rates');
+            $table->string('usage_rates');
             $table->decimal('cost');
             $table->string('storage_requirements');
             $table->timestamps();
