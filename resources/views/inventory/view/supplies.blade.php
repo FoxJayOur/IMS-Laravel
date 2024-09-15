@@ -52,6 +52,7 @@
                     <th>ID</th>
                     <th>Item Name</th>
                     <th>Quantity</th>
+                    <th>Description</th>
                     <th>Usage Rates</th>
                     <th>Cost</th>
                     <th>Storage Requirements</th>
@@ -61,6 +62,7 @@
                         <td>{{$supply->id}}</td>
                         <td>{{$supply->item_name}}</td>
                         <td>{{$supply->qty}}</td>
+                        <td>{{$supply->description}}</td>
                         <td>{{$supply->usage_rates}}</td>
                         <td>{{$supply->cost}}</td>
                         <td>{{$supply->storage_requirements}}</td>
